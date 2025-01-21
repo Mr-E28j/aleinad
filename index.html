@@ -1,0 +1,487 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quality Education for All - Indonesia</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #f4f7fc;
+    }
+
+    header {
+      background: linear-gradient(45deg, #2193b0, #6dd5ed);
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section:nth-child(even) {
+      background: #fff;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #2193b0;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .testimonial-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 2rem 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .testimonial-card {
+      flex: 0 0 300px;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.05);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card span {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Flip Card Styles */
+    .flip-card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin: 0 auto; /* Centers horizontally */
+    justify-content: center; /* Ensures the items stay centered */
+    }
+
+     .flip-card {
+    width: 320px;
+    height: 450px;
+    perspective: 1000px;
+    margin-bottom: 2rem;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Front side visible by default */
+  .flip-card-front {
+    background: #2193b0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* Back side hidden by default */
+  .flip-card-back {
+    background: #fff;
+    color: #333;
+    transform: rotateY(180deg); /* Hide by rotating it 180° */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: #2193b0;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    section {
+      animation: slideIn 0.6s ease-out;
+    }
+
+    /* Scrollbar Styles */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #6dd5ed;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f4f7fc;
+    }
+
+    .highlight-box {
+      background: linear-gradient(45deg, #2193b0, #6dd5ed);
+      color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .highlight-box h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-box p {
+      font-size: 1.2rem;
+    }
+
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Centers horizontally */
+    justify-content: center; /* Ensures the items stay centered */
+}
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .modal:target {
+            display: flex;
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quality Education for All: The Case of Indonesia</h1>
+    <p>Exploring UN Goal 4 and its Implementation in Indonesia</p>
+  </header>
+
+ <section id="introduction">
+  <h2>Introduction to Quality Education</h2>
+  <div class="card">
+    <h3>What is Quality Education?</h3>
+    <p>The UN’s Sustainable Development Goal 4 aims to ensure inclusive, equitable, and quality education for all while promoting lifelong learning opportunities. It's a foundation for building sustainable societies and reducing inequalities. Quality education empowers individuals to break the cycle of poverty and fosters economic growth by equipping people with the skills and knowledge needed for meaningful employment. Additionally, it promotes gender equality and civic participation by enabling informed decision-making and leadership at all levels of society.</p>
+    <p>Education is also instrumental in fostering innovation, creativity, and cultural understanding, making it an essential tool for global progress. Through collaboration and shared knowledge, communities can address common challenges such as climate change, public health crises, and economic disparities.</p>
+    <p>As a long-term investment, quality education shapes future generations to become responsible citizens and leaders, capable of making informed decisions that benefit society as a whole.</p>
+  </div>
+</section>
+
+<div class="gallery">
+        <a href="#img1">
+            <img src="https://mishrapawan.wordpress.com/wp-content/uploads/2020/01/3.png?w=667&h=378" alt="Image 1">
+        </a>
+        <a href="#img2">
+            <img src="https://www.comundos.org/sites/default/files/pictures/%E6%9C%AA%E5%91%BD%E5%90%8D1696262915_0.png" alt="Image 2">
+        </a>
+        <a href="#img3">
+            <img src="https://jointsdgfund.org/sites/default/files/2021-02/875090357e3beddeb086054ae6b800c28684cdb4_4-goal-resources.png" alt="Image 3">
+        </a>
+    </div>
+
+    <!-- Modal Images -->
+    <div id="img1" class="modal">
+    <a href="#" style="position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 24px;">&times;</a>
+    <img src="https://mishrapawan.wordpress.com/wp-content/uploads/2020/01/3.png?w=667&h=378" alt="Image 1">
+</div>
+<div id="img2" class="modal">
+    <a href="#" style="position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 24px;">&times;</a>
+    <img src="https://www.comundos.org/sites/default/files/pictures/%E6%9C%AA%E5%91%BD%E5%90%8D1696262915_0.png" alt="Image 2">
+</div>
+<div id="img3" class="modal">
+    <a href="#" style="position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 24px;">&times;</a>
+    <img src="https://jointsdgfund.org/sites/default/files/2021-02/875090357e3beddeb086054ae6b800c28684cdb4_4-goal-resources.png" alt="Image 3">
+</div>
+</section>
+
+<!-- Indonesia Education Section -->
+<section id="indonesia-education">
+  <h2>Education in Indonesia</h2>
+  <div class="card" style="display: flex; align-items: flex-start;">
+    <div style="flex: 1;">
+      <h3>The Current System</h3>
+      <p>Indonesia offers 12 years of compulsory education, split into primary, secondary, and high school levels. Despite significant progress in accessibility, challenges remain in ensuring equity and improving the quality of education nationwide. Rural and remote regions face acute shortages of qualified teachers, adequate facilities, and modern learning tools, further exacerbating educational disparities.</p>
+      <p>Furthermore, Indonesia's educational outcomes, as measured by international benchmarks like the Programme for International Student Assessment (PISA), highlight areas for improvement. Low literacy and numeracy rates indicate a need for stronger foundational skills among students, which are critical for success in higher education and the workforce.</p>
+      <p>The government has prioritized teacher training programs to address skill gaps and improve classroom instruction. However, implementation remains uneven, with urban areas often benefiting more than rural communities.</p>
+    <p>Recent reforms have also introduced digital learning tools and hybrid teaching methods to modernize the education system. Programs aimed at integrating sustainable development concepts into school curricula are helping to raise awareness among young learners about environmental and social challenges.</p>
+    </div>
+    <img src="https://www.worldbank.org/content/dam/Worldbank/Feature%20Story/EAP/Indonesia/bermutu-735x490.jpg" alt="Indonesia Education System" style="flex: 0 0 auto; margin-left: 20px; max-width: 40%; height: auto;">
+  </div>
+  <div class="highlight-box">
+    <h3>Did You Know?</h3>
+    <p>Indonesia has one of the largest student populations globally, but rural schools often face a lack of resources and qualified teachers. What do you think can be done to improve this situation?</p>
+    <button onclick="alert('AI-driven platforms are one of the solutions helping bridge the gap!')" style="padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+        Discover AI Solutions
+    </button>
+    <p>Additionally, have you heard of government initiatives like the <strong>"Smart Indonesia Program"</strong>? This program aims to provide financial aid to underprivileged students, making education more accessible to marginalized communities. How do you think such initiatives can impact future generations?</p>
+    <button onclick="alert('These initiatives can lead to a more inclusive and equal education system!')" style="padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+        Learn More About Smart Indonesia Program
+    </button>
+</div>
+
+</section>
+
+<!-- AI Solution Section -->
+<section id="ai-solution">
+  <h2>AI Solution: Alef Platform</h2>
+  <div class="card">
+    <h3>What is Alef Platform?</h3>
+    <p>Alef Platform is a cutting-edge, AI-powered tool designed to revolutionize learning. It offers personalized experiences tailored to each student’s needs, helping them learn at their own pace while empowering teachers with real-time data insights.</p>
+  </div>
+  <div class="card">
+    <h3>Key Benefits</h3>
+    <ul>
+      <li><strong>Personalized Learning:</strong> Tailors content to individual needs.</li>
+      <li><strong>Improved Outcomes:</strong> Proven to enhance math and language skills.</li>
+      <li><strong>Reduced Teacher Workload:</strong> Automates grading and feedback.</li>
+      <li><strong>Data-Driven Decisions:</strong> Real-time insights for better interventions.</li>
+    </ul>
+  </div>
+  <div class="card">
+    
+    <div class="gallery">
+        <a href="#img7">
+            <img src="https://www.alefeducation.com/_next/image?url=https%3A%2F%2Fcms-backend-prod.alefeducation.com%2Fwp-content%2Fuploads%2F2024%2F10%2F1-1.jpg&w=750&q=75" alt="Image 7">
+        </a>
+        <a href="#img8">
+            <img src="https://www.alefeducation.com/_next/image?url=https%3A%2F%2Fcms-backend-prod.alefeducation.com%2Fwp-content%2Fuploads%2F2024%2F10%2Fvideo-thumb.png&w=1920&q=75" alt="Image 8">
+        </a>
+        <a href="#img9">
+            <img src="https://www.alefeducation.com/_next/image?url=https%3A%2F%2Fcms-backend-prod.alefeducation.com%2Fwp-content%2Fuploads%2F2024%2F10%2F3-1.jpg&w=750&q=75" alt="Image 9">
+        </a>
+    </div>
+
+    <!-- Modal Images -->
+    <div id="img7" class="modal">
+    <a href="#" style="position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 24px;">&times;</a>
+    <img src="https://www.alefeducation.com/_next/image?url=https%3A%2F%2Fcms-backend-prod.alefeducation.com%2Fwp-content%2Fuploads%2F2024%2F10%2F1-1.jpg&w=750&q=75" alt="Image 7">
+</div>
+<div id="img8" class="modal">
+    <a href="#" style="position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 24px;">&times;</a>
+    <img src="https://www.alefeducation.com/_next/image?url=https%3A%2F%2Fcms-backend-prod.alefeducation.com%2Fwp-content%2Fuploads%2F2024%2F10%2Fvideo-thumb.png&w=1920&q=75" alt="Image 8">
+</div>
+<div id="img9" class="modal">
+    <a href="#" style="position: absolute; top: 10px; right: 20px; color: white; text-decoration: none; font-size: 24px;">&times;</a>
+    <img src="https://www.alefeducation.com/_next/image?url=https%3A%2F%2Fcms-backend-prod.alefeducation.com%2Fwp-content%2Fuploads%2F2024%2F10%2F3-1.jpg&w=750&q=75" alt="Image 9">
+</div>
+    
+    <h3>How It’s Helping Indonesia</h3>
+    <p>Through a partnership with Indonesia’s Ministry of Religious Affairs, Alef has reached over 1.5 million students, improving learning outcomes, especially in under-resourced schools.</p>
+  </div>
+</section>
+  <section id="flip-cards">
+    <h2>AI in Education</h2>
+
+    <div class="flip-card-container">
+      <!-- Flip Card 1: Description of AI -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <strong>Alef AI Solution</strong>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Alef Platform</strong> is a personalized learning environment designed to meet each student's unique needs. It uses AI to provide real-time data to teachers, helping them customize learning paths for students.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 2: Benefits of Alef -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <strong>Benefits of Alef</strong>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Personalized Learning</strong>: Students can learn at their own pace, focusing on areas where they need the most help. <br><strong>Improved Outcomes</strong>: Studies show that students' learning outcomes, especially in math, improve with Alef. <br><strong>Reduced Teacher Workload</strong>: Automated feedback and grading allow teachers more time for personalized instruction.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 3: Alef in Indonesia -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <strong>Alef in Indonesia</strong>
+          </div>
+          <div class="flip-card-back">
+            <p>Alef Education partnered with Indonesia's Ministry of Religious Affairs to provide Alef Platform to 1.5 million students. This has led to significant improvements in student learning outcomes across the country.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 4: How it helps in challenges -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <strong>Addressing Challenges</strong>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Reduced Technology Reliance</strong>: Alef can be used on laptops, tablets, and smartphones, helping students access learning materials even without a computer at school.<br><strong>Better Classroom Use</strong>: Personalized learning materials and automated feedback allow teachers to make better use of classroom time, even in overcrowded settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="testimonials">
+    <h2>Alef Platform Testimonials</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-card">
+        <p>"The Alef Platform provides a real-time data dashboard for teachers to use during their classes. Based on this data, the teacher can direct students to the appropriate material and resources and customise their path to the desired level."</p>
+        <span>- Tala Tabaza
+Arabic Teacher | Greenwood International School</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"We have been using the Alef Education platform for a while now. It is enjoyable for students and takes into account individual differences."</p>
+        <span>- Shatha Saaduddin
+Arabic Language Teacher | Greenwood International School</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"I would like to thank Alef Education for all its efforts … It helps you improve your performance, student performance, and progress and achievement at all stages. "</p>
+        <span>- Jamal Younis Al Saad
+Arabic Teacher | Victoria International Schools Sharjah</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>Learn More about Alef</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/kcUZXO4wXy4" title="Alef Platform: Transforming Education in Indonesia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/WYgUdK3fD3U" title="Testimonials about Alef" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>Links and Contact</p>
+    <div>
+    
+    </div>
+  </footer>
+</body>
+</html>
